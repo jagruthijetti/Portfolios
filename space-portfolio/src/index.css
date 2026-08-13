@@ -1,0 +1,183 @@
+:root {
+  /* DEEP SPACE COLOR PALETTE */
+  --space-black: #02030A;
+  --space-dark: #050B18;
+  --space-blue: #0B1635;
+  --nebula-purple: #30105C;
+  --cosmic-blue: #39C6FF;
+  --cosmic-purple: #9B5CFF;
+  --cosmic-pink: #FF4FD8;
+  --star-white: #FFFFFF;
+  --text-primary: #F4F7FF;
+  --text-secondary: #AAB4D0;
+
+  --glass-bg: rgba(11, 22, 53, 0.65);
+  --glass-border: rgba(57, 198, 255, 0.25);
+  --card-glow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(57, 198, 255, 0.15);
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+[data-theme="light"] {
+  /* COSMIC DAWN LIGHT THEME */
+  --space-black: #F5F7FF;
+  --space-dark: #E8EEFB;
+  --space-blue: #D0E1FF;
+  --nebula-purple: #E6D8FF;
+  --cosmic-blue: #0070F3;
+  --cosmic-purple: #7928CA;
+  --cosmic-pink: #F50057;
+  --star-white: #121829;
+  --text-primary: #0A1024;
+  --text-secondary: #475569;
+
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(121, 40, 202, 0.2);
+  --card-glow: 0 10px 30px rgba(121, 40, 202, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--space-black);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--space-black);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--cosmic-blue), var(--cosmic-purple));
+  border-radius: 4px;
+}
+
+/* Base Typography & Helper Classes */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-number {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--cosmic-blue);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.section-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--cosmic-blue) 50%, var(--cosmic-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--card-glow);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(57, 198, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(57, 198, 255, 0.25);
+}
+
+/* Glowing Button Styling */
+.btn-cosmic-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--cosmic-blue) 0%, var(--cosmic-purple) 100%);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(57, 198, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-cosmic-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(155, 92, 255, 0.7);
+}
+
+.btn-cosmic-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-cosmic-secondary:hover {
+  transform: translateY(-3px);
+  border-color: var(--cosmic-blue);
+  background: rgba(57, 198, 255, 0.15);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
